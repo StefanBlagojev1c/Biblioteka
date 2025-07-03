@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+  <div class="container col-lg-3 col-xs-12">
+    <div class="my-5">
+      <h3>Izmena knjige</h3>
+    </div>
+
+    <div class="form-group">
+      <label for="ime">Ime knjige</label>
+      <input type="text" class="form-control" name="ime" value="{{ knjiga.ime }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" name="autor" value="{{ knjiga.autor }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="datum_izdanja">Datum izdanja</label>
+      <input type="date" class="form-control" name="datum_izdanja" value="{{ knjiga.datum_izdanja }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="stanje">Stanje</label>
+      <select name="stanje" class="form-control" required>
+        <option {% if knjiga.stanje == "" %} selected {% endif %} disabled>Izaberite stanje</option>
+        <option {% if knjiga.stanje == "Novo" %} selected {% endif %} value="Novo">Novo</option>
+        <option {% if knjiga.stanje == "Polovno" %} selected {% endif %} value="Polovno">Polovno</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cena">Cena (RSD)</label>
+      <input type="number" class="form-control" name="cena" value="{{ knjiga.cena }}" required>
+    </div>
+
+    <input type="submit" value="Sačuvaj" class="btn btn-primary" role="button">
+  </div>
+</form>
+{% endblock %}

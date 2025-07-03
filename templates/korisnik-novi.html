@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container col-lg-2 col-xs-12'>
+
+    <div class="my-5">
+        <h3> Novi korisnik </h3>
+    </div>
+
+    <form action="{{ url_for('korisnik_novi') }}" method="POST">
+        <div class="form-group">
+            <label for="ime">Ime</label>
+            <input type="text" class="form-control" name="ime" required>
+        </div>
+        <div class="form-group">
+            <label for="prezime">Prezime</label>
+            <input type="text" class="form-control" name="prezime" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="DU">Datum učlanjenja</label>
+            <input type="date" name="DU" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="lozinka">Lozinka</label>
+            <input type="password" class="form-control" name="lozinka" required>
+        </div>
+        <input type="submit" value="Sačuvaj" class="btn btn-primary mt-3">
+    </form>
+</div>
+{% endblock %}
